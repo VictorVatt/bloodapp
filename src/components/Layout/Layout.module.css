@@ -1,0 +1,52 @@
+.container {
+    display: flex;
+ /* Hauteur totale de la vue */
+}
+.side_container {
+    margin-left: 15px;
+    margin-top: 15px;
+}
+.top_container {
+    padding: 20px;
+    border-radius: 20px;
+    box-shadow: rgba(136, 165, 191, 0.48) 6px 2px 16px 0px, rgba(255, 255, 255, 0.8) -6px -2px 16px 0px;
+}
+
+.sidebar {
+    border-radius: 20px;
+    padding: 20px;
+    margin-top: 20px;
+    background-color: #fff; /* Couleur de fond de la sidebar */
+    color: white; /* Couleur du texte dans la sidebar */
+    box-shadow: rgba(136, 165, 191, 0.48) 6px 2px 16px 0px, rgba(255, 255, 255, 0.8) -6px -2px 16px 0px;
+}
+
+.content {
+    flex-grow: 1; /* Le contenu principal prend l'espace restant */
+    padding: 20px; /* Padding autour du contenu */
+    /* Ajoutez d'autres styles pour le contenu ici */
+}
+
+.nav {
+    display: flex;
+    flex-direction: column;
+}
+
+.link_button {
+    color: black;
+    text-decoration: none;
+    font-weight: 600;
+    margin-top: 25px;
+    border-radius: 10px;
+    padding: 5px;
+    transition: background-color 0.2s ease;
+}
+
+.link_button:hover{
+    background-color:red;
+    color: white;
+}
+
+.nav_icons {
+    margin-right: 10px;
+}
