@@ -24,7 +24,7 @@
 
 .content {
     flex-grow: 1; /* Le contenu principal prend l'espace restant */
-    padding: 20px; /* Padding autour du contenu */
+    padding: 15px; /* Padding autour du contenu */
     /* Ajoutez d'autres styles pour le contenu ici */
 }
 

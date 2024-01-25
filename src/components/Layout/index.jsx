@@ -10,12 +10,12 @@ const Layout = ({ children }) => {
         <div className={styles.container}>
             <div className={styles.side_container}>
                 <div className={styles.top_container}>
-                    <svg width="247.2" height="77.25365622781415" viewBox="-14 0 384.1515151515152 120.0530303030303" class="looka-1j8o68f">
+                    <svg width="247.2" height="77.25365622781415" viewBox="-14 0 384.1515151515152 120.0530303030303" className="looka-1j8o68f">
                         <defs id="SvgjsDefs4872"></defs>
                         <g id="SvgjsG4873" featurekey="hmhgWD-0" transform="matrix(0.26515151515151514,0,0,0.26515151515151514,-39.45454545454545,-7.484848484848484)" fill="#d72323">
                             <title xmlns="http://www.w3.org/2000/svg">Slice 1</title>
                             <description xmlns="http://www.w3.org/2000/svg">Created with Sketch (http://www.bohemiancoding.com/sketch)</description>
-                            <g xmlns="http://www.w3.org/2000/svg" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                            <g xmlns="http://www.w3.org/2000/svg" stroke="none" strokeWidth="1" fill="none" fillRule="evenodd">
                                 <path d="M256,480 C344.365564,480 416,408.365564 416,320 C416,231.634436 256,32 256,32 C256,32 96,231.634436 96,320 C96,408.365564 167.634436,480 256,480 Z M256,480" fill="#d72323"></path>
                             </g>
                         </g>
@@ -28,10 +28,10 @@ const Layout = ({ children }) => {
                 <div className={styles.sidebar}>
                     <nav className={styles.nav}>
                         <Link className={styles.link_button} href={"/"}><FontAwesomeIcon className={styles.nav_icons} icon={faHouse} />Accueil</Link>
-                        <Link className={styles.link_button} href={"/"}><FontAwesomeIcon className={styles.nav_icons} icon={faDumbbell} />Données physiques</Link>
-                        <Link className={styles.link_button} href={"/"}><FontAwesomeIcon className={styles.nav_icons} icon={faRightLeft} />Transport oxygène</Link>
+                        <Link className={styles.link_button} href={"/physical"}><FontAwesomeIcon className={styles.nav_icons} icon={faDumbbell} />Données physiques</Link>
+                        <Link className={styles.link_button} href={"/oxygene"}><FontAwesomeIcon className={styles.nav_icons} icon={faRightLeft} />Transport oxygène</Link>
                         <Link className={styles.link_button} href={"/immune"}><FontAwesomeIcon className={styles.nav_icons} icon={faVirus} />Système immunitaire</Link>
-                        <Link className={styles.link_button} href={"/"}><FontAwesomeIcon className={styles.nav_icons} icon={faBolt} />Métabolisme énergétique</Link>
+                        <Link className={styles.link_button} href={"/energy"}><FontAwesomeIcon className={styles.nav_icons} icon={faBolt} />Métabolisme énergétique</Link>
                     </nav>
                 </div>
             </div>

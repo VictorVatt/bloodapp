@@ -1,0 +1,24 @@
+
+.button_container {
+    display: flex;
+    justify-content: right;
+}
+
+.subject_list {
+    padding: 20px;
+    box-shadow: rgba(136, 165, 191, 0.48) 6px 2px 16px 0px, rgba(255, 255, 255, 0.8) -6px -2px 16px 0px;
+    border-radius: 15px;
+    margin-right: 20px;
+}
+
+.import_button {
+    padding: 20px;
+    background-color: #058220;
+    border: none;
+    border-radius: 15px;
+    font-family: "Poppins", sans-serif;
+    color: white;;
+    box-shadow: rgba(136, 165, 191, 0.48) 6px 2px 16px 0px, rgba(255, 255, 255, 0.8) -6px -2px 16px 0px;
+    cursor: pointer;
+    font-size: 15;
+}
