@@ -15,10 +15,28 @@ export const DataProvider = ({ children }) => {
 
   const changeSubject = (subject) => {
     setSelectedSubject(subject);
-    if(subject === '') {
-      setSelectedSubjectData([]);
+  
+    if (subject === 'Subject') {
+      setSelectedSubjectData("Aucun sujet séléctionné");
     } else {
-      const subjectData = allData.filter(item => item.subject === subject); // Assurez-vous que 'subject' correspond au champ du sujet dans vos données
+      // Trouver les indices des colonnes pour le sujet sélectionné
+      const subjectColumnsIndices = allData[0].reduce((indices, currentSubject, index) => {
+        if (currentSubject === subject) {
+          indices.push(index);
+        }
+        return indices;
+      }, []);
+  
+      // Filtrer et transformer les données pour chaque ligne
+      const subjectData = allData.slice(1).map(row => {
+        // Créer une nouvelle ligne avec uniquement les colonnes nécessaires
+        const filteredRow = row.filter((_, index) => 
+          index === 0 || index === 1 || subjectColumnsIndices.includes(index)
+        );
+  
+        return filteredRow;
+      });
+  
       setSelectedSubjectData(subjectData);
     }
   };
@@ -29,3 +47,5 @@ export const DataProvider = ({ children }) => {
     </DataContext.Provider>
   );
 };
+
+

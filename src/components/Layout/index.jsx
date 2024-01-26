@@ -3,7 +3,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHouse, faDumbbell, faVirus, faBolt,faRightLeft } from '@fortawesome/free-solid-svg-icons'; // Importez le fichier CSS pour le style
 import Link from 'next/link';
 import Image from 'next/image';
-
+import ImportData from "../ImportData"// pages/index.js
 
 const Layout = ({ children }) => {
     return (
@@ -35,7 +35,9 @@ const Layout = ({ children }) => {
                     </nav>
                 </div>
             </div>
+            
             <main className={styles.content}>
+                <ImportData></ImportData>
                 {children}
             </main>
         </div>

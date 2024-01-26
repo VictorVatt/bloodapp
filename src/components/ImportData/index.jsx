@@ -2,12 +2,15 @@ import styles from "./ImportData.module.css"
 import React, { useRef, useState, useContext } from 'react';
 import { DataContext } from "@/context/context";
 import * as XLSX from 'xlsx';
+import { useRouter } from 'next/router';
+
 
 
 function ExcelUploader() {
   const [columnHeaders, setColumnHeaders] = useState([]);
   const { importData, changeSubject } = useContext(DataContext); // Utiliser le contexte
   const fileInputRef = useRef();
+  const router = useRouter()
 
   const handleFileChange = (event) => {
     const file = event.target.files[0];
@@ -24,6 +27,7 @@ function ExcelUploader() {
         if (jsonData.length > 0) {
           setColumnHeaders(jsonData[0]);
           importData(jsonData); // Mettre à jour les données dans le contexte global
+          router.push('/physical');
         }
       };
       reader.readAsArrayBuffer(file);
@@ -33,19 +37,21 @@ function ExcelUploader() {
 
   const handleSubjectChange = (event) => {
     const selectedSubject = event.target.value;
-    changeSubject(selectedSubject); // Mettre à jour les données filtrées dans le contexte
+    changeSubject(selectedSubject, columnHeaders); // Mettre à jour les données filtrées dans le contexte
   };
 
   const handleButtonClick = () => {
     fileInputRef.current.click();
   };
 
+  const uniqueSubjects = Array.from(new Set(columnHeaders));
+
   return (
     <div>
       <div className={styles.button_container}>
         {columnHeaders.length > 0 && (
           <select className={styles.subject_list} onChange={handleSubjectChange}>
-            {columnHeaders.map((header, index) => (
+            {uniqueSubjects.map((header, index) => (
               <option key={index} value={header}>
                 {header}
               </option>
