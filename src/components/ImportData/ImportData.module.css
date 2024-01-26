@@ -9,6 +9,8 @@
     box-shadow: rgba(136, 165, 191, 0.48) 6px 2px 16px 0px, rgba(255, 255, 255, 0.8) -6px -2px 16px 0px;
     border-radius: 15px;
     margin-right: 20px;
+    font-family: "Poppins", sans-serif;
+    font-weight: 600;
 }
 
 .import_button {
