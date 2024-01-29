@@ -1,4 +1,5 @@
 import styles from "./ImportData.module.css"
+import PlayerProfile from "../PlayerProfile";
 import React, { useRef, useState, useContext } from 'react';
 import { DataContext } from "@/context/context";
 import * as XLSX from 'xlsx';
@@ -11,6 +12,8 @@ function ExcelUploader() {
   const { importData, changeSubject } = useContext(DataContext); // Utiliser le contexte
   const fileInputRef = useRef();
   const router = useRouter()
+  const { selectedSubject } = useContext(DataContext)
+
 
   const handleFileChange = (event) => {
     const file = event.target.files[0];
@@ -49,24 +52,30 @@ function ExcelUploader() {
   return (
     <div>
       <div className={styles.button_container}>
-        {columnHeaders.length > 0 && (
-          <select className={styles.subject_list} onChange={handleSubjectChange}>
-            {uniqueSubjects.map((header, index) => (
-              <option key={index} value={header}>
-                {header}
-              </option>
-            ))}
-          </select>
+        {selectedSubject !== "" && (
+          <PlayerProfile></PlayerProfile>
         )}
-        <input
-          type="file"
-          accept=".xlsx, .xls"
-          onChange={handleFileChange}
-          style={{ display: 'none' }}
-          ref={fileInputRef}
-        />
-        <button className={styles.import_button} onClick={handleButtonClick}>Importer un fichier Excel</button>
+        <div>
+          {columnHeaders.length > 0 && (
+            <select className={styles.subject_list} onChange={handleSubjectChange}>
+              {uniqueSubjects.map((header, index) => (
+                <option key={index} value={header}>
+                  {header}
+                </option>
+              ))}
+            </select>
+          )}
+          <input
+            type="file"
+            accept=".xlsx, .xls"
+            onChange={handleFileChange}
+            style={{ display: 'none' }}
+            ref={fileInputRef}
+          />
+          <button className={styles.import_button} onClick={handleButtonClick}>Importer un fichier Excel</button>
+        </div>
       </div>
+
     </div>
   );
 }

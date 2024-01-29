@@ -2,7 +2,6 @@ import styles from './Layout.module.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHouse, faDumbbell, faVirus, faBolt,faRightLeft } from '@fortawesome/free-solid-svg-icons'; // Importez le fichier CSS pour le style
 import Link from 'next/link';
-import Image from 'next/image';
 import ImportData from "../ImportData"// pages/index.js
 
 const Layout = ({ children }) => {
