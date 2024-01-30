@@ -1,9 +1,11 @@
 // pages/index.js
 
+import MainContent from "@/components/MainContent";
+
 function EnergyPage() {
     return (
       <div>
-        <h1>Métabolisme énergétique</h1>
+        <MainContent></MainContent>
       </div>
     );
   }
