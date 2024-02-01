@@ -5,8 +5,8 @@ import MainContent from "@/components/MainContent";
 function PhysicalPage() {
     return (
       <div>
-        <MainContent></MainContent>
         <h1>Données physiques</h1>
+        <MainContent></MainContent>
       </div>
     );
   }

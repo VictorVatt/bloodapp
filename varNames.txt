@@ -1,0 +1,59 @@
+Subject
+Date de prélèvement
+Données anthropométriques
+Age
+Poids
+Masse grasse
+Données de performance
+30-15 IFT 
+SJ
+CMJ
+FC de récupération
+Serum Chemistry Blood
+Blood Urea Nitrogen 
+Magnesium 
+Bilirubin 
+Lactate Dehydrogenase 
+Creatine Kinase 
+Uric Acid
+C Reactive Protein 
+Sodium 
+Potassium 
+Calcium 
+Myoglobin
+Cholesterol 
+HDL 
+LDL 
+Triglyceride
+Glucose
+Whole Blood analysis
+WBC
+Neutrophils 
+Lymphocytes 
+Monocytes
+Eosinophile 
+Basophil 
+Platelets 
+RBC
+Hemoglobin 
+MCV
+Hematocrit
+MCH
+MCHC
+Hematologic and Iron Status Indicators
+Transferrin  
+Ferritin  
+Iron 
+Transferrin Saturation 
+Hormones
+Testosterone
+Cortisol 
+IL-6 
+Vitamin Status
+Retinol   
+ß-Carotin    
+Vitamin E 
+Vitamin B6
+Vitamin B12
+Vitamin C 
+1,25-dihydroxyvitamine D

@@ -15,10 +15,12 @@
     "@fortawesome/free-solid-svg-icons": "^6.5.1",
     "@fortawesome/react-fontawesome": "^0.2.0",
     "danfojs": "^1.1.2",
+    "excel-date-to-js": "^1.1.5",
     "next": "14.1.0",
     "react": "^18",
     "react-dom": "^18",
     "react-range-slider-input": "^3.0.7",
+    "react-select": "^5.8.0",
     "xlsx": "^0.18.5"
   }
 }
