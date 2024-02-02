@@ -6,7 +6,7 @@ import 'react-range-slider-input/dist/style.css';
 import React, { useContext, useEffect, useState} from 'react';
 import { getJsDateFromExcel } from "excel-date-to-js"
 
-const MainContent = () => {
+const MainContent = ({children}) => {
     const findData = useDataFinder()
     const { selectedSubjectData } = useContext(DataContext)
     const [dateRange, setDateRange] = useState([])
@@ -42,9 +42,11 @@ const MainContent = () => {
 
     return (
         <div className={styles.container}>
+            <p className={styles.label}>Choisir une date</p>
             {dateRange && (
-                <Select options={dateRange} isMulti onChange={handleSelectChange} value={selectedOptions}></Select>
+                <Select className={styles.date_picker} instanceId options={dateRange} isMulti onChange={handleSelectChange} value={selectedOptions}></Select>
             )}
+            {children}
         </div>
     );
 };

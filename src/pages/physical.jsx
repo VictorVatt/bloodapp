@@ -4,7 +4,7 @@ import MainContent from "@/components/MainContent";
 
 function PhysicalPage() {
     return (
-      <div>
+      <div className="main_container">
         <MainContent></MainContent>
       </div>
     );

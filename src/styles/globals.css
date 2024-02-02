@@ -8,5 +8,36 @@ body {
 
 h1 {
     padding: 0;
-    margin: 0;
+    margin: 0px 20px 20px 20px;
+    padding-top: 15px;
+    position: relative;
+    top: 20px;
+    left: 20px;
+    color: white;
+}
+
+.main_container {
+    margin-top: 20px;
+    padding: 15px;
+    border-radius: 15px 15px 0 0;
+    box-shadow: rgba(136, 165, 191, 0.48) 6px 2px 16px 0px, rgba(255, 255, 255, 0.8) -6px -2px 16px 0px;
+
+}
+
+.banner {
+    background-image: url("../../public/images/banner.png");
+    height: 300px;
+    position: relative;
+    object-fit: cover;
+    z-index: -1;
+    border-radius: 15px;
+
+}
+
+.content {
+    color: white;
+    position: relative;
+    top: 180px; 
+    text-align: right;
+    margin-right: 15px;
 }

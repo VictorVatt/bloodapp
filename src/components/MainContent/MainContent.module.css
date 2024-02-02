@@ -1,6 +1,16 @@
 
 .container {
-    margin-top: 20px;
-    background-color: #d4cfcf;
+   
 }
 
+.date_picker {
+    padding: 3px 10px 10px 10px;
+    width: 50%;
+}
+
+.label {
+    font-weight: 500px;
+    font-size: 18px;
+    margin: 0;
+    padding: 0 0 0 10px;
+}

@@ -29,8 +29,7 @@ function ExcelUploader() {
 
         if (jsonData.length > 0) {
           setColumnHeaders(jsonData[0]);
-          importData(jsonData); // Mettre à jour les données dans le contexte global
-          router.push('/physical');
+          importData(jsonData); // Mettre à jour les données dans le contexte global;
         }
       };
       reader.readAsArrayBuffer(file);
