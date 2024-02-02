@@ -10,29 +10,40 @@ const MainContent = () => {
     const findData = useDataFinder()
     const { selectedSubjectData } = useContext(DataContext)
     const [dateRange, setDateRange] = useState([])
+    const { selectedOptions, setSelectedOptions } = useContext(DataContext);
+    const { changeDate } = useContext(DataContext);
+
     
+
+    const handleSelectChange = (selectedDates) => {
+        setSelectedOptions(selectedDates); // Mettre à jour le tableau des valeurs sélectionnées
+    
+        // Extraire les valeurs Excel des dates sélectionnées
+        const datesExcel = selectedDates.map(option => option.value);
+        changeDate(datesExcel);
+    };
+    
+    
+
     useEffect(() => {
         const datesExcel = findData(selectedSubjectData, "Date de prélèvement");
         if (datesExcel) {
-            datesExcel.shift()
-            // Utilisation de 'map' pour créer un nouveau tableau avec des dates JavaScript
-            const datesJs = datesExcel.map(date => getJsDateFromExcel(date));
-            const datesFormatSimples = datesJs.map(date => 
-                date.toLocaleDateString('fr-FR', { day: 'numeric', month: 'long', year: 'numeric' })
-            );
-            const options = datesFormatSimples.map((date, index) => ({
-                value: index.toString(), // Utilisez une valeur unique comme index pour chaque option
-                label: date // Utilisez la date comme label
+            datesExcel.shift();
+            // Créer un tableau d'options avec les dates au format Excel et en français
+            const options = datesExcel.map(dateExcel => ({
+                value: dateExcel, // Utiliser la date Excel comme valeur
+                label: getJsDateFromExcel(dateExcel)
+                          .toLocaleDateString('fr-FR', { day: 'numeric', month: 'long', year: 'numeric' })
             }));
-            setDateRange(options)
-            console.log(datesFormatSimples)
+            setDateRange(options);
         }
-    }, [selectedSubjectData]); // Ajout de 'selectedSubjectData' en tant que dépendance
+    }, [selectedSubjectData, setSelectedOptions]);
+     // Ajout de 'selectedSubjectData' en tant que dépendance
 
     return (
         <div className={styles.container}>
             {dateRange && (
-                <Select options={dateRange} isMulti></Select>
+                <Select options={dateRange} isMulti onChange={handleSelectChange} value={selectedOptions}></Select>
             )}
         </div>
     );

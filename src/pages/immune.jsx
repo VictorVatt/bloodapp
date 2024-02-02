@@ -1,9 +1,10 @@
 // pages/index.js
+import MainContent from "@/components/MainContent";
 
 function ImmunePage() {
     return (
       <div>
-        <h1>Immunitaire</h1>
+        <MainContent></MainContent>
       </div>
     );
   }

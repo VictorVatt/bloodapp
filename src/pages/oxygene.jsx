@@ -1,9 +1,10 @@
 // pages/index.js
+import MainContent from "@/components/MainContent";
 
 function OxygenePage() {
     return (
       <div>
-        <h1>Transport de l'oxygène</h1>
+        <MainContent></MainContent>
       </div>
     );
   }
