@@ -46,8 +46,8 @@ function ExcelUploader() {
     fileInputRef.current.click();
   };
 
-  const uniqueSubjects = Array.from(new Set(columnHeaders)).filter(element => element !== "Subject" && element !== " ");
-  
+  const uniqueSubjects = Array.from(new Set(columnHeaders)).filter(element => element !== "Subject" && element !== "" && element !== undefined);
+  console.log(uniqueSubjects)
   return (
     <div>
       <div className={styles.button_container}>
@@ -55,15 +55,16 @@ function ExcelUploader() {
           <PlayerProfile></PlayerProfile>
         )}
         <div>
-          {columnHeaders.length > 0 && (
-            <select className={styles.subject_list} onChange={handleSubjectChange}>
-              {uniqueSubjects.map((header, index) => (
-                <option key={index} value={header}>
-                  {header}
-                </option>
-              ))}
-            </select>
-          )}
+        {columnHeaders.length > 0 && (
+          <select className={styles.subject_list} onChange={handleSubjectChange}>
+            <option value="">Sélectionnez un joueur</option> {/* Option vide */}
+            {uniqueSubjects.map((header, index) => (
+              <option key={index} value={header}>
+                {header}
+              </option>
+            ))}
+          </select>
+        )}
           <input
             type="file"
             accept=".xlsx, .xls"

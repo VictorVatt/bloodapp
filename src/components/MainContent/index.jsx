@@ -36,13 +36,15 @@ const MainContent = ({children}) => {
                           .toLocaleDateString('fr-FR', { day: 'numeric', month: 'long', year: 'numeric' })
             }));
             setDateRange(options);
-    
+            
             // Sélectionner par défaut la première date
             const defaultSelectedDate = options[0];
             setSelectedOptions([defaultSelectedDate]);
-    
+            
             // Mettre à jour les données de date du sujet sélectionné
-            changeDate([defaultSelectedDate.value]);
+            if (defaultSelectedDate) { // Vérifier que defaultSelectedDate est défini
+                changeDate([defaultSelectedDate.value]);
+            }
         }
     }, [selectedSubjectData, setSelectedOptions, changeDate]);
     
