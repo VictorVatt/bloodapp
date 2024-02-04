@@ -27,8 +27,8 @@ const MainContent = ({children}) => {
 
     useEffect(() => {
         const datesExcel = findData(selectedSubjectData, "Date de prélèvement");
-        if (datesExcel) {
-            datesExcel.shift();
+        if (datesExcel && datesExcel.length > 0) {
+            datesExcel.shift(0)
             // Créer un tableau d'options avec les dates au format Excel et en français
             const options = datesExcel.map(dateExcel => ({
                 value: dateExcel, // Utiliser la date Excel comme valeur
@@ -36,9 +36,16 @@ const MainContent = ({children}) => {
                           .toLocaleDateString('fr-FR', { day: 'numeric', month: 'long', year: 'numeric' })
             }));
             setDateRange(options);
+    
+            // Sélectionner par défaut la première date
+            const defaultSelectedDate = options[0];
+            setSelectedOptions([defaultSelectedDate]);
+    
+            // Mettre à jour les données de date du sujet sélectionné
+            changeDate([defaultSelectedDate.value]);
         }
-    }, [selectedSubjectData, setSelectedOptions]);
-     // Ajout de 'selectedSubjectData' en tant que dépendance
+    }, [selectedSubjectData, setSelectedOptions, changeDate]);
+    
 
     return (
         <div className={styles.container}>

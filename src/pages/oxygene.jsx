@@ -17,13 +17,7 @@ function OxygenePage() {
     if (selectedSubjectDateData.length > 0) {
       const hematocrit = findData(selectedSubjectDateData,"Hematocrit")
       console.log(hematocrit)
-      //const hemoglobin = findData(selectedSubjectDateData,"Hemoglobin")
-      const chartData = hematocrit.slice(2).map((value, index) => ({
-        category: `Mesure ${index + 1}`,
-        value
-      }));
-      console.log(chartData)
-      setData(chartData)
+      setData(hematocrit)
     }
     
   }, [selectedSubjectDateData]);
