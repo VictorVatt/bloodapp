@@ -1,6 +1,6 @@
 import styles from './Layout.module.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faHouse, faDumbbell, faVirus, faBolt,faRightLeft } from '@fortawesome/free-solid-svg-icons'; // Importez le fichier CSS pour le style
+import { faHouse, faDumbbell, faVirus, faBolt,faRightLeft, faPeopleGroup } from '@fortawesome/free-solid-svg-icons'; // Importez le fichier CSS pour le style
 import Link from 'next/link';
 import ImportData from "../ImportData"// pages/index.js
 
@@ -31,6 +31,8 @@ const Layout = ({ children }) => {
                         <Link className={styles.link_button} href={"/oxygene"}><FontAwesomeIcon className={styles.nav_icons} icon={faRightLeft} />Transport oxygène</Link>
                         <Link className={styles.link_button} href={"/immune"}><FontAwesomeIcon className={styles.nav_icons} icon={faVirus} />Système immunitaire</Link>
                         <Link className={styles.link_button} href={"/energy"}><FontAwesomeIcon className={styles.nav_icons} icon={faBolt} />Métabolisme énergétique</Link>
+                        <Link className={styles.link_button_team} href={"/team"}><FontAwesomeIcon className={styles.nav_icons} icon={faPeopleGroup} />Données équipes</Link>
+
                     </nav>
                 </div>
             </div>

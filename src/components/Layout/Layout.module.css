@@ -38,7 +38,7 @@
     text-decoration: none;
     font-weight: 600;
     margin-bottom: 25px;
-    border-radius: 10px;
+    border-radius: 5px;
     padding: 5px;
     transition: background-color 0.2s ease;
 }
@@ -50,4 +50,26 @@
 
 .nav_icons {
     margin-right: 10px;
+}
+
+.link_button_team {
+    color: white;
+    text-decoration: none;
+    font-weight: 600;
+    margin-bottom: 25px;
+    border-radius: 5px;
+    padding: 5px;
+    transition: background-color 0.2s ease;
+    background-color: green;
+}
+
+.link_button_team:hover {
+    color: green;
+    text-decoration: none;
+    font-weight: 600;
+    margin-bottom: 25px;
+    border-radius: 5px;
+    padding: 5px;
+    transition: background-color 0.2s ease;
+    background-color: white;
 }

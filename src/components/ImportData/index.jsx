@@ -47,7 +47,7 @@ function ExcelUploader() {
   };
 
   const uniqueSubjects = Array.from(new Set(columnHeaders)).filter(element => element !== "Subject" && element !== "" && element !== undefined);
-  console.log(uniqueSubjects)
+  
   return (
     <div>
       <div className={styles.button_container}>

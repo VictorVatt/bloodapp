@@ -5,8 +5,11 @@ import Image from "next/image";
 import { useContext, useEffect } from "react";
 
 const PlayerProfile = ({ children }) => {
-    const { selectedSubject } = useContext(DataContext)
+    const { selectedSubject, selectedSubjectData } = useContext(DataContext)
+    const age = selectedSubjectData[2]
+    const lastAge = age[age.length - 1]
 
+    //age.toFixed()
     useEffect(() => {
         // Trouver l'élément parent
     const parentDiv = document.querySelector('.ImportData_button_container__zZL8h');
@@ -24,7 +27,11 @@ const PlayerProfile = ({ children }) => {
     return (
         <div className={styles.container}>
             <Image src={icone} width={80} height={80 } alt="Icone joueur" />
-            <p className={styles.player_name}>Joueur : {selectedSubject}</p>
+            <div>
+              <p className={styles.player_name}>Joueur : {selectedSubject}</p>
+              <p className={styles.player_name}>Âge : {lastAge.toFixed()} ans</p>
+            </div>
+            
         </div>
     );
 };

@@ -2,30 +2,58 @@
 import MainContent from "@/components/MainContent";
 import { useContext, useEffect, useState } from "react";
 import useDataFinder from "@/utils/useDataFinder";
-import BarChart from "@/components/HematocriteChart";
+import BarChart from "@/components/BarChart";
 import { DataContext } from "@/context/context";
+import AlertCard from "@/components/AlertCard";
 
 
 
 function OxygenePage() {
   
-  const { selectedSubjectDateData, selectedSubject } = useContext(DataContext)
+  const { selectedSubjectDateData } = useContext(DataContext)
   const findData = useDataFinder()
-  const [data, setData] = useState({})
+  const [dataHemato, setDataHemato] = useState({})
+  const [dataHemo, setDataHemo] = useState({})
+  const [dataFerritin, setDataFerritin] = useState({})
+  const [dataSaturationTransferrin, setDataSaturationTransferrin] = useState({})
+  
   
   useEffect(() => {
     if (selectedSubjectDateData.length > 0) {
       const hematocrit = findData(selectedSubjectDateData,"Hematocrit")
-      console.log(hematocrit)
-      setData(hematocrit)
+      const hemoglobine = findData(selectedSubjectDateData,"Hemoglobin ")
+      const ferritin = findData(selectedSubjectDateData,"Ferritin  ")
+      const saturationTransferrin = findData(selectedSubjectDateData,"Transferrin Saturation ")
+
+      setDataHemato(hematocrit)
+      setDataHemo(hemoglobine)
+      setDataFerritin(ferritin)
+      setDataSaturationTransferrin(saturationTransferrin)
     }
     
   }, [selectedSubjectDateData]);
 
     return (
       <div className="main_container">
+        <h1 className="main_title">Transport de l'oxygène</h1>
         <MainContent>
-        <BarChart data={data} />
+          <div className="card_container">
+            <AlertCard name="Hemoglobin " treshold={13}/>
+            <AlertCard name="Ferritin  " treshold={30}/>
+            <AlertCard name="Transferrin Saturation " treshold={20}/> 
+          </div>
+          
+          <div className="barchart_container">
+            <div className="line_container">
+              <BarChart data={dataHemato} normal={[40, 54]} max={100} title="Evolution de l'hématocrite" barColor="#e3342b"/>
+              <BarChart data={dataHemo} normal={[13, 17]} max={40} title="Concentration d'hémoglobine"barColor="#e3342b"/>
+            </div>
+            <div className="line_container">
+              <BarChart data={dataFerritin} normal={[30, 300]}  max={500} title="Concentration en ferritinine" barColor="#f8c54e"/>
+              <BarChart data={dataSaturationTransferrin} normal={[20, 50]} max={100} title="Taux de saturation en transferrine" barColor="#f8c54e"/>
+            </div>
+          </div>
+          
         </MainContent>
       </div>
     );

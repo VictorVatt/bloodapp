@@ -1,0 +1,21 @@
+.container {
+    color: white;
+    border-radius: 15px;
+    width: 200px;
+    height: 100px;
+    box-shadow: rgba(136, 165, 191, 0.48) 6px 2px 16px 0px, rgba(255, 255, 255, 0.8) -6px -2px 16px 0px;
+    margin: 10px;
+    padding: 10px;
+}
+
+.card_title {
+    margin: 0;
+}
+
+.bg-red {
+    background-color: #e3342b !important; /* Ajoutez !important pour prioriser cette règle */
+}
+  
+.bg-green {
+    background-color: #368a39 !important; /* Ajoutez !important pour prioriser cette règle */
+}

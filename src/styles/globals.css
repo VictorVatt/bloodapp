@@ -16,9 +16,16 @@ h1 {
     color: white;
 }
 
+.main_title {
+    color: black;
+    margin-top: 0;
+    text-align: center;
+    padding: 0;
+}
+
 .main_container {
     margin-top: 20px;
-    padding: 15px;
+    padding: 0 15px 15px 15px;
     border-radius: 15px 15px 0 0;
     box-shadow: rgba(136, 165, 191, 0.48) 6px 2px 16px 0px, rgba(255, 255, 255, 0.8) -6px -2px 16px 0px;
 
@@ -40,4 +47,27 @@ h1 {
     top: 180px; 
     text-align: right;
     margin-right: 15px;
+}
+
+.tooltip {
+    position: absolute;
+    background: white;
+    border-radius: 5px;
+    padding: 5px;
+    pointer-events: none;
+    border: 1px solid #ccc;
+}
+
+.barchart_container {
+
+}
+
+.line_container {
+    display: flex;
+    justify-content: space-between;
+}
+
+.card_container {
+    display: flex;
+    justify-content: center;
 }

@@ -51,11 +51,18 @@ const MainContent = ({children}) => {
 
     return (
         <div className={styles.container}>
-            <p className={styles.label}>Choisir une date</p>
-            {dateRange && (
+            {selectedSubjectData.length == 0 ? (
+            <h2 className={styles.subjet_message}>Importez des données et/ou séléctionnez un sujet ! </h2>
+            ) : (
+            <div>
+                <p className={styles.label}>Choisir une date</p>
+                {dateRange && (
                 <Select className={styles.date_picker} instanceId options={dateRange} isMulti onChange={handleSelectChange} value={selectedOptions}></Select>
+                )}
+                {children}
+            </div>
             )}
-            {children}
+            
         </div>
     );
 };
