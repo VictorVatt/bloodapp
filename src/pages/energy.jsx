@@ -16,7 +16,7 @@ function EnergyPage() {
       const testosterone = findData(selectedSubjectDateData,"Testosterone").slice(2)
       const cortisol = findData(selectedSubjectDateData,"Cortisol ").slice(2)
       const unit = ""
-
+      
       let TCData = []
       for (let i = 0; i < testosterone.length; i++) {
         let tc = testosterone[i] / cortisol[i]
@@ -56,7 +56,7 @@ function EnergyPage() {
     return (
       <div className="main_container">
         <MainContent>
-          <div className="line_container">
+          <div className="chartline_container">
             <LineChart  data={data} max={50} alert={true} title="Ratio Téstostérone / Cortisol" treshold1={0} treshold2={0} tresholdText1="" rect={true}/>
             <LineChart  data={vitDdata} max={70} title="Concentration en 1,25-dihydroxyvitamine D" treshold1={18} treshold2={64} tresholdText1="Norme" rect={true}/>
           </div>
