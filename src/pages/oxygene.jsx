@@ -35,7 +35,6 @@ function OxygenePage() {
 
     return (
       <div className="main_container">
-        <h1 className="main_title">Transport de l'oxygène</h1>
         <MainContent>
           <div className="card_container">
             <AlertCard name="Hemoglobin " treshold={13}/>

@@ -1,7 +1,7 @@
 import React, { useEffect, useRef } from 'react';
 import * as d3 from 'd3';
 import { getJsDateFromExcel } from 'excel-date-to-js';
-const BulletChart = ({ data, rates, title }) => {
+const BulletChart = ({ data, rates, title, max }) => {
   const ref = useRef();
 
   useEffect(() => {
@@ -14,8 +14,8 @@ const BulletChart = ({ data, rates, title }) => {
     d3.select(ref.current).selectAll("*").remove();
 
     const margin = { top: 50, right: 50, bottom: 50, left: 50 };
-    const width = 960 - margin.left - margin.right;
-    const height = 500 - margin.top - margin.bottom;
+    const width = 575 - margin.left - margin.right;
+    const height = 322 - margin.top - margin.bottom;
 
     const svg = d3.select(ref.current)
       .attr('width', width + margin.left + margin.right)
@@ -24,7 +24,7 @@ const BulletChart = ({ data, rates, title }) => {
       .attr('transform', `translate(${margin.left}, ${margin.top})`);
 
     const xScale = d3.scaleLinear()
-      .domain([0, 25])
+      .domain([0, max])
       .range([0, width]);
 
       const yScale = d3.scaleBand()
@@ -75,7 +75,7 @@ const BulletChart = ({ data, rates, title }) => {
         .attr('fill-opacity', 0.8)
         .on("mouseover", (event) => {
             tooltip.style("opacity", 1);
-            tooltip.html(`Ratio NLR: ${data.nlr.toFixed(2)}`)
+            tooltip.html(`Valeur : ${data.nlr.toFixed(2)}`)
               .style("left", (event.pageX + 10) + "px")
               .style("top", (event.pageY + 10) + "px");
           })
