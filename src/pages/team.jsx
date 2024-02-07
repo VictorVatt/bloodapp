@@ -5,6 +5,7 @@ import { DataContext } from "@/context/context";
 import { useContext, useEffect, useState } from "react";
 import useDataFinder from "@/utils/useDataFinder";
 import RadarChart from "@/components/SpiderChart";
+import BarChart from "@/components/BarChart";
 
 function findLastIndexes(arr, exclude) {
   let lastIndexMap = new Map();
@@ -31,6 +32,10 @@ function TeamPage() {
   const { allData } = useContext(DataContext)
   const findData = useDataFinder()
   const [teamData, setTeamData] = useState([])
+  const [tcTeam, setTcTeam ] = useState([])
+  const [players, setPlayers] = useState([])
+  const [nlrTeamn, setNlrTeam] = useState([])
+  const [hemoTeam, setHemoTeam] = useState([])
   
 
   useEffect(() => {
@@ -50,11 +55,11 @@ function TeamPage() {
       for (let i = 0; i < teamIFT.length; i++) {
         let dataPlayer = {
           player : players[i],
-          IFT : teamIFT[i],
+          Test30_15_IFT : teamIFT[i],
           SJ : teamSJ[i],
           CMJ : teamCMJ[i],
           FC : teamFC[i],
-          MMaigre : 100 - teamMassGrasse[i]
+          MasseMaigre : 100 - teamMassGrasse[i]
         }
         allTeamdata.push(dataPlayer)
       }
@@ -64,10 +69,60 @@ function TeamPage() {
   }, [allData])
 
 
+  useEffect(() => {
+    if (allData.length > 0) {
+      let lastDataIndexForEachSubject = findLastIndexes(allData[0], [])
+      lastDataIndexForEachSubject.splice(1, 0, 1)
+      let lastDataForEachSubject = filterByIndexes(allData, lastDataIndexForEachSubject)
+      const testosterone = findData(lastDataForEachSubject,"Testosterone").slice(2)
+      const cortisol = findData(lastDataForEachSubject,"Cortisol ").slice(2)
+      const players = findData(lastDataForEachSubject, "Subject").slice(1)
+      let TCData = []
+      for (let i = 0; i < testosterone.length; i++) {
+        let tc = testosterone[i] / cortisol[i]
+        TCData.push(tc)
+      }
+      TCData.unshift("Ratio Téstostérone / Cortisol", " ")
+      setPlayers(players)
+      setTcTeam(TCData)
+    }
+    
+  }, [allData]);
+
+  useEffect(() => {
+    if (allData.length > 0) {
+      let lastDataIndexForEachSubject = findLastIndexes(allData[0], [])
+      lastDataIndexForEachSubject.splice(1, 0, 1)
+      let lastDataForEachSubject = filterByIndexes(allData, lastDataIndexForEachSubject)
+      const neutrophils = findData(lastDataForEachSubject,"Neutrophils ").slice(2)
+      const lymphocytes = findData(lastDataForEachSubject,"Lymphocytes ").slice(2)
+      const hemoglobine = findData(lastDataForEachSubject,"Hemoglobin ")
+
+      let NLRData = []
+      for (let i = 0; i < neutrophils.length; i++) {
+        let nlr = neutrophils[i] / lymphocytes[i]
+        NLRData.push(nlr)
+      }
+      NLRData.unshift("Ratio Neutrophyles / Lymphocites", " ")
+      setNlrTeam(NLRData)
+      setHemoTeam(hemoglobine)
+    }
+    
+  }, [allData]);
+
     return (
       <div className="main_container">
         <MainContent>
-            <RadarChart data={teamData} dimensions={{ width: 500, height: 500 }}/>
+          <div className="radar_container">
+            <RadarChart data={teamData} title="Données physiques du groupe" dimensions={{ width: 500, height: 500 }}/>
+          </div>
+          <div className="team_bar_container">
+            <BarChart data={hemoTeam} normal={[13, 17]} max={40} title="Transport d'oxygène : taux d'hémoglobine"barColor="#e3342b" team={players}/>
+            <BarChart data={nlrTeamn} normal={[]} max={5} title="Système immunitaire : ratio de Neutrophyles / Lymphocytes" barColor="#88f075" team={players}/>
+          </div>
+          <div className="radar_container">
+            <BarChart data={tcTeam} normal={[]} max={50} title="Métabolisme énergétique : ratio de téstostérone / cortisol" barColor="#122ec9" team={players}/>
+          </div>
         </MainContent>
       </div>
     );

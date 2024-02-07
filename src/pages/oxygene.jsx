@@ -45,7 +45,7 @@ function OxygenePage() {
           <div className="barchart_container">
             <div className="line_container">
               <BarChart data={dataHemato} normal={[40, 54]} max={100} title="Evolution de l'hématocrite" barColor="#e3342b"/>
-              <BarChart data={dataHemo} normal={[13, 17]} max={40} title="Concentration d'hémoglobine"barColor="#e3342b"/>
+              <BarChart data={dataHemo} normal={[13, 17]} max={40} title="Taux d'hémoglobine"barColor="#e3342b"/>
             </div>
             <div className="line_container">
               <BarChart data={dataFerritin} normal={[30, 300]}  max={500} title="Concentration en ferritinine" barColor="#f8c54e"/>

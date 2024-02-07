@@ -1,7 +1,7 @@
 import React, { useEffect, useRef } from 'react';
 import * as d3 from 'd3';
 
-const BarChart = ({ data, normal, title, max, barColor }) => {
+const BarChart = ({ data, normal, title, max, barColor, team }) => {
   const ref = useRef();
 
   useEffect(() => {
@@ -22,6 +22,7 @@ const BarChart = ({ data, normal, title, max, barColor }) => {
     const margin = { top: 20, right: 20, bottom: 30, left: 40 };
     const width = 575 - margin.left - margin.right;
     const height = 322 - margin.top - margin.bottom;
+
 
     const svg = d3.select(ref.current)
       .attr("width", width + margin.left + margin.right)
@@ -56,9 +57,15 @@ const BarChart = ({ data, normal, title, max, barColor }) => {
       .style("fill", "black") // Changez la couleur ici
       .text(`${name} (${unit})`); // Ajoutez le nom et l'unité ici
 
-    svg.append("g")
-      .attr("transform", `translate(0,${height})`)
-      .call(d3.axisBottom(x).tickFormat(i => `Prélèvement ${i + 1}`)); // Format personnalisé pour les ticks
+      svg.selectAll(".text")
+      .data(data.slice(2))
+      .enter().append("text")
+      .attr("class", "label")
+      .attr("x", (d, i) => x(i) + x.bandwidth() / 2)
+      .attr("y", d => y(d) - 5) // 5 pixels au-dessus de la barre
+      .attr("text-anchor", "middle")
+      .style("font-size", "10px")
+      .text(d => d.toFixed(2));
 
     svg.selectAll(".bar")
     .data(values)
@@ -73,7 +80,8 @@ const BarChart = ({ data, normal, title, max, barColor }) => {
     .duration(800)
     .attr("y", d => y(d))
     .attr("height", d => height - y(d))
-    .attr("fill", barColor);
+    .attr("fill", barColor)
+
 
     svg.append("rect")
       .attr("x", 0)
@@ -82,6 +90,32 @@ const BarChart = ({ data, normal, title, max, barColor }) => {
       .attr("height", y(normal[0]) - y(normal[1]))
       .attr("fill", "green")
       .attr("opacity", 0.2);
+
+    if (team) {
+      svg.append("g")
+      .attr("transform", `translate(0,${height})`)
+      .call(d3.axisBottom(x).tickFormat(i => `Joueur : ${team[i]}`));
+      const mean = d3.mean(data.slice(2));
+      svg.append("line")
+      .attr("x1", 0)
+      .attr("x2", width)
+      .attr("y1", y(mean))
+      .attr("y2", y(mean))
+      .attr("stroke", "red")
+      .attr("stroke-width", "2");// Format personnalisé pour les ticks
+
+      svg.append("text")
+      .attr("x", width) // Positionner à droite
+      .attr("y", y(mean) - 5) // Un peu au-dessus de la ligne de moyenne
+      .attr("text-anchor", "end") // Aligner le texte à la fin
+      .style("font-size", "12px")
+      .text(`Moyenne équipe : ${mean.toFixed(2)}`)
+      .style('fill', 'red');
+    } else {
+      svg.append("g")
+      .attr("transform", `translate(0,${height})`)
+      .call(d3.axisBottom(x).tickFormat(i => `Prélèvement ${i + 1}`)); // Format personnalisé pour les ticks
+    }
   };
 
   return (

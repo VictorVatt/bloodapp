@@ -85,7 +85,7 @@ const BulletChart = ({ data, rates, title, max }) => {
           })
           .on("mouseout", () => {
             tooltip.style("opacity", 0);
-          });;  // Opacité de 50%;
+          });  // Opacité de 50%;
   
     // Ajoutez le label pour la date
     svg.append('text')
