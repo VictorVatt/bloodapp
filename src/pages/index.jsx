@@ -1,4 +1,4 @@
-
+import inflammation from "../../public/images/banner.jpg"
 function HomePage() {
     return (
       <div className="main_container">
@@ -15,3 +15,13 @@ function HomePage() {
   
   export default HomePage;
   
+  const styles = {
+    banner: {
+      backgroundImage: inflammation,
+      height: "300px",
+      position: "relative",
+      objectFit: "cover",
+      borderRadius: "15px",                      
+    }
+  
+}
