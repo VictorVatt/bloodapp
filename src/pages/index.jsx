@@ -15,13 +15,3 @@ function HomePage() {
   
   export default HomePage;
   
-  const styles = {
-    banner: {
-      backgroundImage: "../../public/images/banner.jpg",
-      height: "300px",
-      position: "relative",
-      objectFit: "cover",
-      borderRadius: "15px",                      
-    }
-  
-}

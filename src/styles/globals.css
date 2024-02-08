@@ -32,7 +32,7 @@ h1 {
 }
 
 .banner {
-    background-image: url("../../public/images/banner.jpg");
+    background-image: url("/images/banner.jpg");
     height: 300px;
     position: relative;
     object-fit: cover;
