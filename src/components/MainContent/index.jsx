@@ -5,6 +5,7 @@ import Select from 'react-select';
 import 'react-range-slider-input/dist/style.css';
 import React, { useContext, useEffect, useState} from 'react';
 import { getJsDateFromExcel } from "excel-date-to-js"
+import TextWithModal from "../SavoirPlus";
 
 const MainContent = ({children}) => {
     const findData = useDataFinder()
@@ -55,10 +56,13 @@ const MainContent = ({children}) => {
             <h2 className={styles.subjet_message}>Importez des données et/ou séléctionnez un sujet ! </h2>
             ) : (
             <div>
+                <div className={styles.date_plus_container}>
                 <p className={styles.label}>Choisir une date</p>
+                <TextWithModal />
+                </div>
                 {dateRange && (
                 <Select className={styles.date_picker} instanceId options={dateRange} isMulti onChange={handleSelectChange} value={selectedOptions}></Select>
-                )}
+                )}                
                 {children}
             </div>
             )}

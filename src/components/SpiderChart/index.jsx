@@ -21,10 +21,11 @@ const RadarChart = ({ data, dimensions, title }) => {
                 .attr("height", height)
                 .append("g")
                 .attr("transform", `translate(${width / 2}, ${height / 2})`);
-
+    
+    if (data) {
     const allAxis = Object.keys(data[0]).filter(key => key !== 'player'), 
-          total = allAxis.length,
-          angleSlice = Math.PI * 2 / total;
+    total = allAxis.length,
+    angleSlice = Math.PI * 2 / total;  
 
     const colorScale = d3.scaleOrdinal(d3.schemeCategory10);
 
@@ -127,7 +128,7 @@ const RadarChart = ({ data, dimensions, title }) => {
           tooltip.style("opacity", 0);
         });
     });
-    
+  }
   };
 
   return (

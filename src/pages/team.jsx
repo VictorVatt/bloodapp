@@ -27,8 +27,6 @@ function filterByIndexes(arrayOfArrays, indexes) {
 
 
 function TeamPage() {
-
-  
   const { allData } = useContext(DataContext)
   const findData = useDataFinder()
   const [teamData, setTeamData] = useState([])
@@ -39,7 +37,7 @@ function TeamPage() {
   
 
   useEffect(() => {
-    if (allData.length > 0) {
+    if (allData && allData.length > 0) {
       let lastDataIndexForEachSubject = findLastIndexes(allData[0], [])
       lastDataIndexForEachSubject.splice(1, 0, 1)
       let lastDataForEachSubject = filterByIndexes(allData, lastDataIndexForEachSubject)
@@ -66,7 +64,7 @@ function TeamPage() {
       setTeamData(allTeamdata)
     } 
       
-  }, [allData])
+  }, [])
 
 
   useEffect(() => {
@@ -89,6 +87,7 @@ function TeamPage() {
     
   }, [allData]);
 
+  console.log(teamData)
   useEffect(() => {
     if (allData.length > 0) {
       let lastDataIndexForEachSubject = findLastIndexes(allData[0], [])
@@ -114,8 +113,9 @@ function TeamPage() {
       <div className="main_container">
         <MainContent>
           <div className="radar_container">
+            {teamData && teamData.length > 0 && 
             <RadarChart data={teamData} title="Données physiques du groupe" dimensions={{ width: 500, height: 500 }}/>
-          </div>
+}          </div>
           <div className="team_bar_container">
             <BarChart data={hemoTeam} normal={[13, 17]} max={40} title="Transport d'oxygène : taux d'hémoglobine"barColor="#e3342b" team={players}/>
             <BarChart data={nlrTeamn} normal={[]} max={5} title="Système immunitaire : ratio de Neutrophyles / Lymphocytes" barColor="#88f075" team={players}/>

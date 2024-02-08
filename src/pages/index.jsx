@@ -1,5 +1,4 @@
-import Image from "next/image";
-import banner from "../../public/images/banner.png"
+
 function HomePage() {
     return (
       <div className="main_container">

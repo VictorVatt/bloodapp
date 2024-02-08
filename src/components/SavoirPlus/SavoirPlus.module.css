@@ -1,0 +1,19 @@
+
+.more {
+    background-color: blue;
+    color: white;
+    padding: 5px;
+    border-radius: 5px;
+    margin: 0;
+    cursor: pointer;
+}
+
+.more_icon {
+    margin-left: 5px;
+}
+
+.modal_image_container {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
