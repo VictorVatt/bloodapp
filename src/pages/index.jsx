@@ -17,7 +17,7 @@ function HomePage() {
   
   const styles = {
     banner: {
-      backgroundImage: inflammation,
+      backgroundImage: "../../public/images/banner.jpg",
       height: "300px",
       position: "relative",
       objectFit: "cover",
