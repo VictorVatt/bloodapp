@@ -20,7 +20,7 @@ function HomePage() {
         <br></br><br></br>
         Ce application Web à été réaliser entierement en React.
         <br></br><br></br>
-        <p className="noms">Par Jos DEFORGES, Hugo RABESONA, Pierre HERNOT, Victor VATTIER</p>
+        <style color="red" >Par Jos DEFORGES, Hugo RABESONA, Pierre HERNOT, Victor VATTIER</style>
         </p>
       </div>
     );
