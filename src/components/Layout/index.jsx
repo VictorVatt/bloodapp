@@ -29,7 +29,7 @@ const Layout = ({ children }) => {
                         <Link className={styles.link_button} href={"/"}><FontAwesomeIcon className={styles.nav_icons} icon={faHouse} />Accueil</Link>
                         <Link className={styles.link_button_team} href={"/team"}><FontAwesomeIcon className={styles.nav_icons} icon={faPeopleGroup} />Données équipes</Link>
                         <Link className={styles.link_button} href={"/physical"}><FontAwesomeIcon className={styles.nav_icons} icon={faDumbbell} />Données physiques</Link>
-                        <Link className={styles.link_button} href={"/oxygene"}><FontAwesomeIcon className={styles.nav_icons} icon={faRightLeft} />Transport oxygène</Link>
+                        <Link className={styles.link_button} href={"/oxygene"}><FontAwesomeIcon className={styles.nav_icons} icon={faRightLeft} />Transport de l'oxygène</Link>
                         <Link className={styles.link_button} href={"/immune"}><FontAwesomeIcon className={styles.nav_icons} icon={faVirus} />Système immunitaire</Link>
                         <Link className={styles.link_button} href={"/energy"}><FontAwesomeIcon className={styles.nav_icons} icon={faBolt} />Métabolisme énergétique</Link>
 
