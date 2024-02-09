@@ -64,7 +64,7 @@ function TeamPage() {
       setTeamData(allTeamdata)
     } 
       
-  }, [])
+  }, [allData])
 
 
   useEffect(() => {
@@ -114,8 +114,7 @@ function TeamPage() {
         <MainContent>
           <div className="radar_container">
             {teamData && teamData.length > 0 && 
-            <RadarChart data={teamData} title="Données physiques du groupe" dimensions={{ width: 500, height: 500 }}/>
-}          </div>
+            <RadarChart data={teamData} title="Données physiques du groupe" dimensions={{ width: 500, height: 500 }} keyMulti={"player"} type={"joueur"}/>}          </div>
           <div className="team_bar_container">
             <BarChart data={hemoTeam} normal={[13, 17]} max={40} title="Transport d'oxygène : taux d'hémoglobine"barColor="#e3342b" team={players}/>
             <BarChart data={nlrTeamn} normal={[]} max={5} title="Système immunitaire : ratio de Neutrophyles / Lymphocytes" barColor="#88f075" team={players}/>

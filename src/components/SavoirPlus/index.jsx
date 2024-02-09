@@ -7,8 +7,9 @@ import { useRouter } from 'next/router'; // Importez le fichier CSS pour le styl
 import Image from 'next/image';
 
 const textes = {
-    team: "",
-    physical: "",
+    team: <p>Apercu des données sur l'ensemble du groupe</p>,
+    physical: 
+    <p>Données physiques pour un joueur en fonction de la date sélectionnée</p>,
     oxygene: <p>Hémoglobine (g/dL) : L'hémoglobine est une glycoprotéine qui transporte l'oxygène, notamment vers les muscles. Des niveaux d'hémoglobine bas peuvent entraîner une capacité réduite à transporter l'oxygène vers les muscles, entraînant fatigue prématurée et performances diminuées sur le terrain. Les valeurs normales sont<strong> entre 13 et 17 g/dL</strong>.
     <br></br>
     <br></br>
@@ -34,7 +35,17 @@ const textes = {
     La protéine C-réactive (CRP) et les InterLeukines-6 (IL-6) constituent des marqueurs cruciaux lors de l'analyse sanguine des sportifs. La CRP et les IL-6 sont produits en réponse à une inflammation dans le corps, ce qui en fait un indicateur sensible des processus inflammatoires. Dans le contexte sportif, des niveaux élevés de CRP et IL-6 peuvent signaler une inflammation résultant de l'entraînement intensif ou d'une blessure. Surveiller ces marqueurs permet de détecter rapidement des signes d'inflammation excessive en fonction des valeurs seuils décrites.
     <div className={styles.modal_image_container}><Image src={"/images/inflammation.jpg"} width={500} height={150} alt='dezzdzd'/></div>
     </p>,
-    energy: ""
+    energy: <p>Ratio testostérone – cortisol
+    <br></br>
+    <br></br> 
+    Un surmenage non-fonctionnel se caractérise par une stagnation voire une diminution des performances même après plusieurs jours de récupération. Cela peut s’expliquer par un état métabolique de l’athlète instable caractérisé par un catabolisme supérieur à l’anabolisme. Le ratio testostérone – cortisol est un indicateur de l’état métabolique de l’athlète. Par exemple, une augmentation de la concentration en cortisol associée à une diminution de la concentration en testostérone est associée à une phase catabolique prédominante. En effet, une diminution de plus de 30% est associée à un état de surmenage non-fonctionnel. 
+    <br></br>
+    <br></br>
+    Vitamine D 
+    <br></br>
+    <br></br>
+    La vitamine D (1,25-dihydroxyvitamine D) joue un rôle crucial dans le maintien de la santé musculo-squelettique et constitue un indicateur d’anabolisme. En effet, une carence en vitamine D est associée à une fragilité osseuse et musculaire et peut être associé à un risque accru de blessures (musculaires et/ou osseuses). En cas de carence, il convient de prendre des mesures préventives. A noter qu’une diminution de la concentration en vitamine D n’est pas systématiquement synonyme de carence. En effet, il est nécessaire de prendre en compte le moment de la saison et la région du monde dans lequel le prélèvement sanguin est effectué. 
+    </p>
 };
 
 

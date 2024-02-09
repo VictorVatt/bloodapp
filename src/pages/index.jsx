@@ -1,4 +1,5 @@
-import inflammation from "../../public/images/banner.jpg"
+
+
 function HomePage() {
     return (
       <div className="main_container">

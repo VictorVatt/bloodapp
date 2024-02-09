@@ -1,7 +1,8 @@
 import React, { useEffect, useRef } from 'react';
 import * as d3 from 'd3';
+import { getJsDateFromExcel } from 'excel-date-to-js';
 
-const RadarChart = ({ data, dimensions, title }) => {
+const RadarChart = ({ data, dimensions, title, keyMulti, type }) => {
   const chartRef = useRef();
 
   useEffect(() => {
@@ -22,8 +23,9 @@ const RadarChart = ({ data, dimensions, title }) => {
                 .append("g")
                 .attr("transform", `translate(${width / 2}, ${height / 2})`);
     
-    if (data) {
-    const allAxis = Object.keys(data[0]).filter(key => key !== 'player'), 
+    if (data.length > 0) {
+    console.log(data)
+    const allAxis = Object.keys(data[0]).filter(key => key !== keyMulti), 
     total = allAxis.length,
     angleSlice = Math.PI * 2 / total;  
 
@@ -116,7 +118,8 @@ const RadarChart = ({ data, dimensions, title }) => {
          .style("stroke-width", 2)
          .on("mouseover", (event) => {
           tooltip.style("opacity", 1);
-          tooltip.html(`Joueur : ${datum.player}`)
+          tooltip.html(`${type} : ${getJsDateFromExcel(datum.player)
+            .toLocaleDateString('fr-FR', { day: 'numeric', month: 'long', year: 'numeric' })}`)
             .style("left", (event.pageX + 10) + "px") // 10px à droite de la souris
             .style("top", (event.pageY + 10) + "px"); // 10px sous la souris
         })
