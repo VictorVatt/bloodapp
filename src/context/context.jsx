@@ -13,8 +13,23 @@ export const DataProvider = ({ children }) => {
   const [selectedSubject, setSelectedSubject] = useState('');
   const [selectedOptions, setSelectedOptions] = useState([])
 
+  const transformData = (data) => {
+    return data.map(row => {
+      return row.map(item => {
+        if (typeof item === 'string' && item.startsWith('<')) {
+          // Remplacer la virgule par un point et supprimer le symbole '<'
+          const numericPart = item.substring(1).replace(',', '.');
+          // Convertir en nombre à virgule flottante
+          return parseFloat(numericPart);
+        }
+        return item;
+      });
+    });
+  };
+
   const importData = (newData) => {
-    setAllData(newData);
+    const transformedData = transformData(newData)
+    setAllData(transformedData);
     // Réinitialiser les données du sujet sélectionné si nécessaire
   };
 
@@ -41,8 +56,8 @@ export const DataProvider = ({ children }) => {
   
         return filteredRow;
       });
-  
-      setSelectedSubjectData(subjectData);
+      const transformedSubjectData = transformData(subjectData);
+      setSelectedSubjectData(transformedSubjectData);
     }
   };
 
@@ -62,8 +77,8 @@ export const DataProvider = ({ children }) => {
             index === 0 || index === 1 || dateColumnsIndices.includes(index));
     });
 
-    // Mettre à jour l'état avec les données filtrées
-    setSelectedSubjectDateData(dateData);
+    const transformedDateData = transformData(dateData);
+    setSelectedSubjectDateData(transformedDateData);
 };
 
 
