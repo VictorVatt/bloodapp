@@ -110,6 +110,7 @@ const RadarChart = ({ data, dimensions, title, keyMulti, type }) => {
     data.forEach((datum, i) => {
       const radarData = allAxis.map(axis => ({ axis, value: datum[axis] }));
       
+  
       svg.append("path")
          .attr("class", "radar")
          .attr("d", radarLine(radarData))
@@ -118,10 +119,19 @@ const RadarChart = ({ data, dimensions, title, keyMulti, type }) => {
          .style("stroke-width", 2)
          .on("mouseover", (event) => {
           tooltip.style("opacity", 1);
-          tooltip.html(`${type} : ${getJsDateFromExcel(datum.player)
-            .toLocaleDateString('fr-FR', { day: 'numeric', month: 'long', year: 'numeric' })}`)
+          if (type === "date") {
+            // Si c'est une date valide, formatez-la et procédez comme avant
+            const formattedDate = getJsDateFromExcel(datum.player).toLocaleDateString('fr-FR', { day: 'numeric', month: 'long', year: 'numeric' });
+            tooltip.html(`${type} : ${formattedDate}`)
             .style("left", (event.pageX + 10) + "px") // 10px à droite de la souris
-            .style("top", (event.pageY + 10) + "px"); // 10px sous la souris
+            .style("top", (event.pageY + 10) + "px");
+            // Utilisez 'formattedDate' pour votre logique de graphique...
+          } else {
+            tooltip.html(`${type} : ${datum.player}`)
+            .style("left", (event.pageX + 10) + "px") // 10px à droite de la souris
+            .style("top", (event.pageY + 10) + "px");
+          }
+           // 10px sous la souris
         })
         .on("mousemove", (event) => {
           tooltip.style("left", (event.pageX + 10) + "px")

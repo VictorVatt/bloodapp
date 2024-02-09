@@ -5,11 +5,23 @@ function HomePage() {
       <div className="main_container">
         <div className="banner">
           <h1>LeSang : votre performance, notre science</h1>
-          <p className="content">Par Jos Désforges, Hugo Rabesona, Pierre Hernot et Victor Vattier</p>
-
+          <p className="content">Par Jos Déforges, Hugo Rabesona, Pierre Hernot et Victor Vattier</p>
         </div>
-        <h3>Quo deserunt sunt aut tempore consequatur. </h3><p>Lorem ipsum dolor sit amet. Vel totam quibusdam id laborum adipisci ut minus maxime. Est ratione aliquam est veniam nostrum et repellat ipsam ut eius velit nam sint voluptas vel voluptatum eius. Est galisum omnis in nostrum obcaecati ad commodi voluptatem ab minus ipsum sed mollitia repellendus. </p><ol><li>Id quae officiis cum vitae dolor ut accusamus amet et optio sint. </li><li>Aut voluptatem doloremque qui rerum quia 33 nesciunt ducimus id recusandae aperiam. </li><li>Aut minima fugiat est optio velit! </li></ol><dl><dt><dfn>Est labore vitae ut veniam labore. </dfn></dt><dd>Sed consequatur laborum aut ipsum possimus eum eligendi voluptatum qui nostrum error. </dd><dt><dfn>Et dolorum dolore? </dfn></dt><dd>Aut voluptatibus voluptatem et pariatur amet sed commodi maxime. </dd></dl>
-
+        <h3>Notre projet : </h3>
+        <p>Ce site a été créé dans le cadre du module "Outils numériques et suivi de la charge".<br></br><br></br>
+        Nous avons réparti les données sous cinq onglets :<br></br> 
+        - Données équipes, <br></br>
+        - Données physiques, <br></br>
+        - Transport oxygène, <br></br>
+        - Système immunitaire <br></br>
+        - Métabolisme énergétique. <br></br><br></br>
+        Après avoir importé le fichier Excel, en <strong>sélectionnant un joueur</strong>, l'onglet "Données physiques" permet d'avoir une vision globale de l'effectif selon un des indicateurs par onglet lors du dernier prélèvement.<br></br> 
+        Ensuite, il est possible de consulter, pour chacun des joueurs, l'évolution dans chacun des onglets des indicateurs choisis. <strong>De nouveaux prélèvements </strong>ainsi que de <strong>nouveaux joueurs </strong>peuvent être ajoutés dans la base de données. <br></br>Cependant, il est <strong>impératif</strong> de ne pas <strong>modifier</strong> le format du fichier de base <strong>(noms des variables)</strong>.
+        <br></br><br></br>
+        Ce application Web à été réaliser entierement en React.
+        <br></br><br></br>
+        <p className="noms">Par Jos DEFORGES, Hugo RABESONA, Pierre HERNOT, Victor VATTIER</p>
+        </p>
       </div>
     );
   }
